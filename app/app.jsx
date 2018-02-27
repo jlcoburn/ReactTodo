@@ -11,6 +11,5 @@ $(document).foundation();
 
 ReactDOM.render(
   <TodoApp />,
-  // <p className="text-center">Boilerplate 3 Project</p>,
   document.getElementById('app')
 );

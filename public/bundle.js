@@ -109,9 +109,7 @@
 
 	$(document).foundation();
 
-	ReactDOM.render(React.createElement(TodoApp, null),
-	// <p className="text-center">Boilerplate 3 Project</p>,
-	document.getElementById('app'));
+	ReactDOM.render(React.createElement(TodoApp, null), document.getElementById('app'));
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
@@ -25475,16 +25473,35 @@
 	'use strict';
 
 	var React = __webpack_require__(8);
+	var TodoList = __webpack_require__(234);
 
 	var TodoApp = React.createClass({
 	  displayName: 'TodoApp',
 
-
+	  getInitialState: function getInitialState() {
+	    return {
+	      todos: [{
+	        id: 1,
+	        text: 'Walk the dog'
+	      }, {
+	        id: 2,
+	        text: 'Clean the yard'
+	      }, {
+	        id: 3,
+	        text: 'Do the dishes'
+	      }, {
+	        id: 4,
+	        text: 'Vacuum the floor'
+	      }]
+	    };
+	  },
 	  render: function render() {
+	    var todos = this.state.todos;
+
 	    return React.createElement(
 	      'div',
 	      null,
-	      'TodoApp.jsx'
+	      React.createElement(TodoList, { todos: todos })
 	    );
 	  }
 	});
@@ -25838,6 +25855,69 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ }),
+/* 234 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var React = __webpack_require__(8);
+	var Todo = __webpack_require__(235);
+
+	var TodoList = React.createClass({
+	  displayName: 'TodoList',
+
+	  render: function render() {
+	    var todos = this.props.todos;
+
+
+	    var renderTodos = function renderTodos() {
+	      console.log(todos[0].id);
+	      return todos.map(function (todo) {
+	        return React.createElement(Todo, _extends({ key: todo.id }, todo));
+	      });
+	    };
+
+	    return React.createElement(
+	      'div',
+	      null,
+	      renderTodos()
+	    );
+	  }
+	});
+
+	module.exports = TodoList;
+
+/***/ }),
+/* 235 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(8);
+
+	var Todo = React.createClass({
+	  displayName: "Todo",
+
+	  render: function render() {
+	    var _props = this.props,
+	        text = _props.text,
+	        id = _props.id;
+
+	    return React.createElement(
+	      "div",
+	      { className: "text-center" },
+	      id,
+	      ". ",
+	      text
+	    );
+	  }
+	});
+
+	module.exports = Todo;
 
 /***/ })
 /******/ ]);
