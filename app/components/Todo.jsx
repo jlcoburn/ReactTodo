@@ -1,10 +1,12 @@
-const React = require('react')
+const React = require('react');
+
+const AddTodo = require('AddTodo');
 
 const Todo = React.createClass({
   render: function () {
     const {text, id} = this.props;
     return(
-      <div className="text-center">
+      <div>
         {id}. {text}
       </div>
     )

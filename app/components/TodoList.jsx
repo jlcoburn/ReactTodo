@@ -3,10 +3,9 @@ const Todo = require('Todo');
 
 const TodoList = React.createClass({
   render: function () {
-    var {todos} = this.props;
+    let {todos} = this.props;
 
-    var renderTodos = () => {
-      console.log(todos[0].id);
+    const renderTodos = () => {
       return todos.map((todo) => {
         return (
           <Todo key={todo.id} {...todo}/>
