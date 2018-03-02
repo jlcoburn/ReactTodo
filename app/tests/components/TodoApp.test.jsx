@@ -10,4 +10,14 @@ describe('TodoApp', () => {
   it('should exist', ()=> {
     expect('TodoApp').toExist();
   });
+
+  it('Should add new task', ()=> {
+    const newTask = 'Test text';
+    var todoApp = TestUtils.renderIntoDocument(<TodoApp/>);
+
+    todoApp.setState({todos: []});
+
+    todoApp.handleAddTodo(newTask);;
+    expect(todoApp.state.todos[0].text).toBe(newTask);
+  });
 });

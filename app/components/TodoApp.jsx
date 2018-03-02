@@ -1,8 +1,9 @@
 const React = require('react');
 const TodoList = require('TodoList');
 const AddTodo = require('AddTodo');
-
 const TodoSearch = require('TodoSearch');
+let uuid = require('node-uuid');
+
 const TodoApp = React.createClass({
   getInitialState: function () {
     return {
@@ -10,16 +11,16 @@ const TodoApp = React.createClass({
       searchText: '',
       todos: [
         {
-          id: 1,
+          id: uuid(),
           text: 'Walk the dog'
         }, {
-          id: 2,
+          id: uuid(),
           text: 'Clean the yard'
         }, {
-          id: 3,
+          id: uuid(),
           text: 'Do the dishes'
         }, {
-          id: 4,
+          id: uuid(),
           text: 'Vacuum the floor'
         }
 
@@ -28,11 +29,15 @@ const TodoApp = React.createClass({
   },
 
   handleAddTodo: function (text) {
-    const {todos} = this.state;
-    alert(`New todo: ${text}`);
+
     this.setState({
-      id: todos.length+1,
-      text: text
+      todos: [
+        ...this.state.todos,
+        {
+          text: text,
+          id: uuid()
+        }
+      ]
     })
   },
 
