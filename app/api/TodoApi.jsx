@@ -28,13 +28,7 @@ module.exports = {
     //filter by searchText
     filteredTodos = filteredTodos.filter((todo) => {
       return searchText.length === 0 || todo.text.toLowerCase().indexOf(searchText) > -1;
-      // if (searchText.length > 0) {
-      //   if (todo.text.toLowerCase().indexOf(searchText) != -1) {
-      //     return todo;
-      //   } 
-      // } else {
-      //   return filteredTodos;
-      // }
+
     });
     //sort by showCompleted
     filteredTodos.sort((a,b) => {
