@@ -13,7 +13,7 @@ const AddTodo = React.createClass({
   },
   render: function () {
     return (
-      <div> 
+      <div className="container__footer"> 
         <form onSubmit={this.onFormSubmit}>
           <input type="text" placeholder ="Enter new task" ref="task"></input>
           <button className="button hollow">Add task</button>
