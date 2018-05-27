@@ -1,5 +1,5 @@
 {
-  "name": "timerapp",
+  "name": "reacttodo",
   "version": "1.0.0",
   "description": "Simple timer app built with react",
   "main": "index.js",
